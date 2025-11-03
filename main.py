@@ -7,7 +7,6 @@ def webhook():
     if request.method == 'POST':
         payload = request.get_json()
         print(payload)
-        # Here you can add your business logic to process the payload
         return 'Webhook received successfully', 200
     if request.method == 'GET':
         return 'Webhook endpoint is live', 200
