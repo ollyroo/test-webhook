@@ -1,6 +1,16 @@
-def main():
-    print("Hello from webhook!")
+from flask import Flask, request
+
+app = Flask(__name__)
 
 
-if __name__ == "__main__":
-    main()
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        payload = request.get_json()
+        print(payload)
+        # Here you can add your business logic to process the payload
+        return 'Webhook received successfully', 200
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=3000)
