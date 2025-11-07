@@ -6,7 +6,7 @@ app = Flask(__name__)
 def webhook():
     if request.method == 'POST':
         payload = request.get_json()
-        print(payload)
+        print(payload["workflow_run"]["referenced_workflows"])
         return 'Webhook received successfully', 200
     if request.method == 'GET':
         return 'Webhook endpoint is live', 200
